@@ -3,6 +3,7 @@
 import 'package:firebase_core/firebase_core.dart' show FirebaseOptions;
 import 'package:flutter/foundation.dart'
     show defaultTargetPlatform, kIsWeb, TargetPlatform;
+import 'package:flutter_dotenv/flutter_dotenv.dart';
 
 /// Default [FirebaseOptions] for use with your Firebase apps.
 ///
@@ -49,16 +50,16 @@ class DefaultFirebaseOptions {
     }
   }
 
-  static const FirebaseOptions android = FirebaseOptions(
-    apiKey: 'AIzaSyCapHJlugGzabsNDRE8Y4n3cy1QaUMuQ5c',
+  static FirebaseOptions get android => FirebaseOptions(
+    apiKey: dotenv.env['FIREBASE_ANDROID_API_KEY'] ?? '',
     appId: '1:188801396370:android:fe6d42b67a3df413df004b',
     messagingSenderId: '188801396370',
     projectId: 'sleepdoctor-7271a',
     storageBucket: 'sleepdoctor-7271a.firebasestorage.app',
   );
 
-  static const FirebaseOptions ios = FirebaseOptions(
-    apiKey: 'AIzaSyClGey856XGC8KnF5Nv_uP0H4jR4xsKVLs',
+  static FirebaseOptions get ios => FirebaseOptions(
+    apiKey: dotenv.env['FIREBASE_IOS_API_KEY'] ?? '',
     appId: '1:188801396370:ios:939d0ec03e3cef78df004b',
     messagingSenderId: '188801396370',
     projectId: 'sleepdoctor-7271a',

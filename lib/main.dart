@@ -5,16 +5,27 @@ import 'src/routing/bottom_tab_router.dart';
 import 'package:flutter_secure_storage/flutter_secure_storage.dart';
 import 'src/utils/http_overrides.dart';
 import 'src/constants/theme.dart';
+import 'src/services/api_service.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'firebase_options.dart';
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:flutter_dotenv/flutter_dotenv.dart';
 
 void main() async {
   HttpOverrides.global = MyHttpOverrides();
   WidgetsFlutterBinding.ensureInitialized();
+  
+  // Load environment variables
+  await dotenv.load(fileName: ".env");
+  
+  // Initialize Firebase
   await Firebase.initializeApp(
     options: DefaultFirebaseOptions.currentPlatform,
   );
+  
+  // Initialize API service
+  ApiService.instance.initialize();
+  
   runApp(
     MultiProvider(
       providers: [

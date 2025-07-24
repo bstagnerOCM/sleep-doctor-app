@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:http/http.dart' as http;
-import 'dart:convert';
 import '../../utils/remove_html.dart';
+import '../../services/api_service.dart';
 import 'package:flutter/foundation.dart';
 
 class Articles extends StatefulWidget {
@@ -23,16 +22,29 @@ class ArticlesState extends State<Articles> {
   }
 
   Future<List<Post>> fetchPosts() async {
-    final response = await http.get(Uri.parse(
-        'http://sleepfoundationv2.local/wp-json/wp/v2/article?orderby=last_modifed_date&per_page=2&offset=0'));
-    if (response.statusCode == 200) {
-      List<dynamic> data = jsonDecode(response.body);
+    try {
+      final data = await ApiService.instance.fetchArticles(
+        orderBy: 'last_modifed_date',
+        perPage: 2,
+        offset: 0,
+      );
       return data.map((json) => Post.fromJson(json)).toList();
-    } else {
+    } catch (e) {
       if (kDebugMode) {
-        print('Failed to load posts: ${response.statusCode}, ${response.body}');
+        print('Failed to load posts: $e');
       }
-      throw Exception('Failed to load posts: ${response.statusCode}');
+      
+      // Provide user-friendly error messages
+      String errorMessage = 'Failed to load articles';
+      if (e is AuthenticationException) {
+        errorMessage = 'Authentication failed. Please check your API key in settings.';
+      } else if (e is RateLimitException) {
+        errorMessage = 'Too many requests. Please try again later.';
+      } else if (e is ApiException) {
+        errorMessage = e.message;
+      }
+      
+      throw Exception(errorMessage);
     }
   }
 

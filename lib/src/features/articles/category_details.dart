@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:http/http.dart' as http;
 import 'dart:convert';
 import '../../utils/remove_html.dart';
+import '../../services/api_service.dart';
 import 'article_detail.dart';
 import 'package:intl/intl.dart';
 import 'package:flutter_svg/flutter_svg.dart';
@@ -30,15 +30,30 @@ class CategoryDetailScreenState extends State<CategoryDetailScreen> {
   }
 
   Future<List<Post>> fetchPosts() async {
-    final response = await http.get(Uri.parse(widget.url));
-    if (response.statusCode == 200) {
-      List<dynamic> data = jsonDecode(response.body);
-      return data.map((json) => Post.fromJson(json)).toList();
-    } else {
-      if (kDebugMode) {
-        print('Failed to load posts: ${response.statusCode}, ${response.body}');
+    try {
+      final response = await ApiService.instance.get(widget.url);
+      if (response.statusCode == 200) {
+        List<dynamic> data = jsonDecode(response.body);
+        return data.map((json) => Post.fromJson(json)).toList();
+      } else {
+        throw Exception('Failed to load posts: ${response.statusCode}');
       }
-      throw Exception('Failed to load posts: ${response.statusCode}');
+    } catch (e) {
+      if (kDebugMode) {
+        print('Failed to load posts from category details: $e');
+      }
+      
+      // Provide user-friendly error messages
+      String errorMessage = 'Failed to load articles';
+      if (e is AuthenticationException) {
+        errorMessage = 'Authentication failed. Please check your API key in settings.';
+      } else if (e is RateLimitException) {
+        errorMessage = 'Too many requests. Please try again later.';
+      } else if (e is ApiException) {
+        errorMessage = e.message;
+      }
+      
+      throw Exception(errorMessage);
     }
   }
 

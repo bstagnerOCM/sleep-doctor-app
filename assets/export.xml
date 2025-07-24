@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<HealthData locale="en_US">
+  <ExportDate value="2024-12-11 09:29:08 -0800"/>
+  <Me 
+    HKCharacteristicTypeIdentifierDateOfBirth="1990-01-01" 
+    HKCharacteristicTypeIdentifierBiologicalSex="HKBiologicalSexMale" 
+    HKCharacteristicTypeIdentifierBloodType="HKBloodTypeOPositive" 
+    HKCharacteristicTypeIdentifierFitzpatrickSkinType="HKFitzpatrickSkinTypeI" 
+    HKCharacteristicTypeIdentifierCardioFitnessMedicationsUse="None"/>
+
+  <!-- Sample Records -->
+  <Record 
+    type="HKQuantityTypeIdentifierDietaryWater" 
+    unit="mL" 
+    value="300" 
+    sourceName="TestApp" 
+    creationDate="2024-12-10 08:30:00 -0800" 
+    startDate="2024-12-10 08:00:00 -0800" 
+    endDate="2024-12-10 08:30:00 -0800"/>
+
+  <Record 
+    type="HKQuantityTypeIdentifierStepCount" 
+    unit="count" 
+    value="2000" 
+    sourceName="TestApp" 
+    creationDate="2024-12-10 09:00:00 -0800" 
+    startDate="2024-12-10 08:00:00 -0800" 
+    endDate="2024-12-10 09:00:00 -0800"/>
+
+  <Record 
+    type="HKQuantityTypeIdentifierHeartRate" 
+    unit="count/min" 
+    value="72" 
+    sourceName="TestApp" 
+    creationDate="2024-12-10 09:15:00 -0800" 
+    startDate="2024-12-10 09:00:00 -0800" 
+    endDate="2024-12-10 09:15:00 -0800"/>
+
+  <Record 
+    type="HKQuantityTypeIdentifierActiveEnergyBurned" 
+    unit="kcal" 
+    value="150" 
+    sourceName="TestApp" 
+    creationDate="2024-12-10 10:00:00 -0800" 
+    startDate="2024-12-10 09:30:00 -0800" 
+    endDate="2024-12-10 10:00:00 -0800"/>
+
+  <Record 
+    type="HKQuantityTypeIdentifierDistanceWalkingRunning" 
+    unit="km" 
+    value="1.2" 
+    sourceName="TestApp" 
+    creationDate="2024-12-10 11:00:00 -0800" 
+    startDate="2024-12-10 10:30:00 -0800" 
+    endDate="2024-12-10 11:00:00 -0800"/>
+
+  <!-- Additional metadata for testing -->
+  <MetadataEntry 
+    key="HKMetadataKeyExternalUUID" 
+    value="12345-67890-abcde"/>
+
+</HealthData>

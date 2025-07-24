@@ -1,0 +1,90 @@
+{
+  "project_info": {
+    "project_number": "188801396370",
+    "project_id": "sleepdoctor-7271a",
+    "storage_bucket": "sleepdoctor-7271a.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:188801396370:android:fe6d42b67a3df413df004b",
+        "android_client_info": {
+          "package_name": "com.example.sleep_doctor"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "188801396370-hqnp628dlrvc71ojqqvmqcret3g5edt0.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCapHJlugGzabsNDRE8Y4n3cy1QaUMuQ5c"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "188801396370-hqnp628dlrvc71ojqqvmqcret3g5edt0.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "188801396370-4evs1l3n1foqq251038u4tv8cs18q0r1.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.sleepdoctor.sleepDoctor"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:188801396370:android:6f09b392a628be5ddf004b",
+        "android_client_info": {
+          "package_name": "com.sleepdoctor.sleep_doctor"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "188801396370-jo1evuca1j53v4qk6tlnocl5kel2t8nn.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.sleepdoctor.sleep_doctor",
+            "certificate_hash": "c384f63f365c62f41f4aef90c241893d8fc42646"
+          }
+        },
+        {
+          "client_id": "188801396370-hqnp628dlrvc71ojqqvmqcret3g5edt0.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCapHJlugGzabsNDRE8Y4n3cy1QaUMuQ5c"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "188801396370-hqnp628dlrvc71ojqqvmqcret3g5edt0.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "188801396370-4evs1l3n1foqq251038u4tv8cs18q0r1.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.sleepdoctor.sleepDoctor"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
